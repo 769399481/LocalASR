@@ -2,264 +2,1067 @@
 
 [简体中文](README.md) | English
 
-**LocalASR is a source-available local speech recognition and realtime translation application for Windows.** Project positioning: **Source-available**.
+**LocalASR is a source-available Windows speech recognition and real-time translation application that runs locally.**
 
-The current version is **0.1.0 Release Candidate**. Phase 15 release checks are complete; no official release has been published yet.
+Project type: **Source-available**
 
-[Repository](https://github.com/769399481/LocalASR) · [Issues](https://github.com/769399481/LocalASR/issues) · [Releases](https://github.com/769399481/LocalASR/releases)
+Current stable version: **v0.1.0**
+
+[Project Home](https://github.com/769399481/LocalASR) ·
+[Issues](https://github.com/769399481/LocalASR/issues) ·
+[Releases](https://github.com/769399481/LocalASR/releases)
+
+---
 
 ## Features
 
-- Audio/video file transcription and batch processing, with English, Chinese or automatic language detection.
-- Realtime English captions from a microphone or Windows system audio.
-- Local English → Simplified Chinese translation, preserving the English original.
-- English, Chinese or bilingual floating captions; session recovery and export.
+- Audio / video transcription with batch file processing.
+- English, Chinese, or automatic language detection.
+- Real-time English subtitles from microphone input.
+- Real-time subtitles from Windows system audio.
+- Local English → Simplified Chinese translation while preserving the original English text.
+- English, Chinese, and bilingual floating subtitles.
+- Real-time session saving, recovery, and export.
 - TXT / DOCX / JSON / SRT / VTT output.
-- Automatic hardware detection, on-demand model downloads and local-first processing.
+- Automatic hardware detection.
+- On-demand speech recognition and translation model downloads.
+- Speech recognition and default translation are processed locally.
 
-## Download and installation
+---
 
-**After the official release**, download from [GitHub Releases](https://github.com/769399481/LocalASR/releases). This does not claim the file is already available online.
+## Download and Installation
 
-1. Download `LocalASR-Setup-0.1.0-win64.exe` and check the accompanying `SHA256SUMS.txt`.
-2. Run the Installer, read the license and choose the installation directory and optional desktop shortcut.
-3. Start LocalASR from the Start Menu.
-4. Follow the first-use prompts to download the speech and translation models you need.
+Download the latest Windows installer from:
 
-End users do not need Python, Conda, CUDA Toolkit or a command line. GPU drivers are still supplied by the OS/vendor. Installation is per-user at `%LOCALAPPDATA%\Programs\LocalASR` by default and does not require administrator privileges.
+[GitHub Releases](https://github.com/769399481/LocalASR/releases)
 
-Stop tasks and close the app before uninstalling through Windows Settings → Apps → Installed apps, or by running `unins000.exe` in the installation directory. **Uninstall preserves user data and models.** Delete `%LOCALAPPDATA%\LocalASR` manually only after confirming you no longer need its contents. Exports saved elsewhere must be managed separately. Deleting the downloaded Installer does not uninstall the app.
+Current version:
 
-## System requirements
+```text
+LocalASR-Setup-0.1.0-win64.exe
+```
 
-- Windows 10 / 11 x64 is the target; actual installation validation used Windows 11.
-- An NVIDIA GPU is recommended. CPU fallback is available, but file transcription is substantially slower and realtime performance depends on hardware.
-- 16 GB RAM or more is recommended. An RTX 3060 Laptop 6 GB has been tested; not every GPU/CPU is guaranteed.
-- The app occupies approximately 2.497 GB. Models, download staging and exports need additional space; initial model downloads require internet access.
-- Microphone capture requires an available input device and system permission. System audio captures the default playback device.
-- Windows 7, ARM64 and official macOS support are not promised.
+Installation steps:
+
+1. Download `LocalASR-Setup-0.1.0-win64.exe`.
+2. Optionally verify the file using the included `SHA256SUMS.txt`.
+3. Run the installer.
+4. Review the license and choose the installation directory and optional desktop shortcut.
+5. Start LocalASR from the Windows Start menu or desktop shortcut.
+6. On first use, download the speech recognition and translation models you need.
+
+Regular users do not need to install:
+
+- Python
+- Conda
+- CUDA Toolkit
+- Command-line development tools
+
+NVIDIA GPU drivers are still provided by Windows or the GPU vendor.
+
+Default per-user installation directory:
+
+```text
+%LOCALAPPDATA%\Programs\LocalASR
+```
+
+Administrator privileges are not required for installation.
+
+---
+
+## Uninstallation
+
+After closing LocalASR, you can uninstall it through:
+
+```text
+Windows Settings
+→ Apps
+→ Installed apps
+→ LocalASR
+→ Uninstall
+```
+
+You can also run:
+
+```text
+unins000.exe
+```
+
+from the LocalASR installation directory.
+
+By default, uninstalling LocalASR preserves:
+
+- User settings
+- Downloaded models
+- Session recovery data
+- The LocalASR user data directory
+
+Default user data directory:
+
+```text
+%LOCALAPPDATA%\LocalASR
+```
+
+You may manually delete this directory after confirming that you no longer need its contents.
+
+Output folders selected by the user are not removed by the uninstaller.
+
+Deleting the downloaded installer does not uninstall LocalASR.
+
+---
+
+## System Requirements
+
+- Windows 10 / Windows 11 x64.
+- Release validation was primarily performed on Windows 11.
+- NVIDIA GPU is recommended.
+- CPU fallback is available without an NVIDIA GPU, but file transcription will be significantly slower.
+- Real-time performance depends on CPU, GPU, and audio conditions.
+- 16 GB RAM or more is recommended.
+- NVIDIA GeForce RTX 3060 Laptop GPU 6 GB has been validated.
+- Identical performance is not guaranteed across all GPU / CPU combinations.
+- Installed application size is approximately 2.5 GB.
+- Models, temporary downloads, cache, and output files require additional disk space.
+- An internet connection is required for first-time model downloads.
+- Microphone features require a working input device and Windows microphone permission.
+- Windows system audio capture uses the current playback device.
+
+Currently not officially supported:
+
+- Windows 7
+- Windows ARM64
+- macOS
+
+---
 
 ## Usage
 
-### File transcription
+### File Transcription
 
-Add or drag in audio/video files, including multiple files. Choose the recognition language, Chinese translation option, quality mode, export formats and output directory, then start. Translation currently supports only English → Simplified Chinese. Open the output directory when processing finishes.
+Open LocalASR and go to the file transcription page.
 
-### Realtime captions
+You can:
 
-Select microphone or Windows system audio, check the device and start. English partial results may change; confirmed final results and Chinese translations remain in the session. Stop before exporting. For system audio, make sure the default playback device is unmuted and at a moderate volume.
+- Add a single audio / video file.
+- Add multiple files for batch processing.
+- Select the recognition language.
+- Enable or disable Chinese translation.
+- Select a quality mode.
+- Select output formats.
+- Select an output directory.
 
-### Floating captions
+Then start transcription.
 
-Choose English, Chinese or bilingual display, adjust font size, position and opacity, and switch between editing/viewing modes. Chinese display requires translation to be enabled and the translation model to be available.
+Current translation direction:
 
-## Supported formats
+```text
+English → Simplified Chinese
+```
 
-Input: **MP3, WAV, M4A, FLAC, AAC, OGG, MP4**. Decoding also depends on file integrity and the actual codec.
+After the task finishes, you can open the output directory directly.
 
-Output: **TXT, DOCX, JSON, SRT, VTT**. Subtitles use actual segment timestamps. Subtitle export currently prioritizes the original language; bilingual results can be saved in JSON / DOCX.
+---
+
+### Real-Time Subtitles
+
+Real-time subtitles support:
+
+- Microphone input
+- Windows system audio
+
+Select the corresponding audio source and confirm the device before starting.
+
+During real-time recognition:
+
+- English partial results are updated continuously.
+- Confirmed English final results are saved to the current session.
+- When translation is enabled, final results are translated into Chinese.
+- Session contents can be exported after stopping recognition.
+
+When using Windows system audio, make sure:
+
+- The correct default playback device is selected.
+- Playback volume is not set to 0.
+- The device is not muted.
+- The playback device is actively outputting audio.
+
+---
+
+### Floating Subtitles
+
+Floating subtitles support:
+
+- English
+- Chinese
+- Bilingual
+
+You can adjust:
+
+- Font size
+- Position
+- Opacity
+- Edit / viewing mode
+
+Chinese subtitles require translation to be enabled and the translation model to be available.
+
+---
+
+## Supported Formats
+
+### Input Formats
+
+Supported:
+
+- MP3
+- WAV
+- M4A
+- FLAC
+- AAC
+- OGG
+- MP4
+
+Whether a specific file can be decoded also depends on file integrity and the actual codec used.
+
+### Output Formats
+
+Supported:
+
+- TXT
+- DOCX
+- JSON
+- SRT
+- VTT
+
+Subtitle files use real segment timestamps.
+
+Bilingual results can be stored in formats that support the corresponding content, such as JSON and DOCX.
+
+---
 
 ## Models
 
-| Purpose | Model | Approximate size |
-| --- | --- | --- |
-| High-accuracy file ASR | large-v3 | 3.09 GB |
-| Realtime ASR | small | 0.49 GB |
-| English → Simplified Chinese | Helsinki-NLP/opus-mt-en-zh + OpenCC, CPU | 0.32 GB |
+| Purpose | Model | Approximate Size |
+| --- | --- | ---: |
+| High-accuracy file ASR | large-v3 | ~3.09 GB |
+| Real-time ASR | small | ~0.49 GB |
+| English → Simplified Chinese | Helsinki-NLP/opus-mt-en-zh + OpenCC | ~0.32 GB |
 
-File and realtime models are configured separately. Hardware detection and quality modes may recommend a different choice for your computer. Models are not included in Git or the Installer. Prefer downloading them on demand through the app's speech-model page; recognizable existing models are reused.
+File transcription and real-time recognition can use different model configurations.
+
+LocalASR can recommend suitable runtime strategies based on hardware and quality settings.
+
+Models:
+
+- Are not included in the Git repository.
+- Are not included in the Windows installer.
+- Are downloaded separately as needed.
+- Can be reused if an existing compatible model is detected.
+
+It is recommended to install required models from the **Speech Models** page inside the application.
+
+---
 
 ## Privacy
 
-ASR and default translation run locally. Audio and transcripts are not uploaded by default; model downloads require internet access. Allowlisted diagnostics do not include transcript text, original audio or complete logs. Logs may contain personal paths and recovery files contain captions; review before sharing. See [PRIVACY](PRIVACY.md).
+LocalASR is designed primarily for local processing.
 
-## Known limitations
+By default:
 
-- The Installer has no Authenticode signature. Windows may display Unknown Publisher or a SmartScreen prompt.
-- Cross-version Upgrade validation is **PARTIAL**. Same-version installation/reinstallation is not cross-version upgrade validation.
-- Some hardware combinations, spoken microphone content, headphones/Bluetooth, physical multiple monitors and physical DPI settings have not been fully validated.
-- Cross-window dragging from File Explorer has not been fully validated; internal native drag-and-drop has been tested.
-- Some DRM/protected audio or special audio paths may not be captured.
-- Recognition and translation can be wrong; review important content. macOS is not officially supported; there is no cloud ASR or automatic updater.
+- Speech recognition runs locally.
+- Translation runs locally.
+- Audio is not uploaded to the cloud for recognition.
+- Transcription text is not uploaded to the cloud for recognition.
 
-See [0.1.0 Release Notes](RELEASE_NOTES_0.1.0.md) for scope. Do not disable system security protection to use the app.
+Model downloads require internet access.
 
-## License and commercial licensing
+Diagnostic fields do not intentionally include:
 
-LocalASR uses the [PolyForm Noncommercial License 1.0.0](LICENSE) and is **Source-available**. Noncommercial use follows that license; any commercial use requires a separate commercial license. Contact **yehao769399481@gmail.com**; see [COMMERCIAL_LICENSE](COMMERCIAL_LICENSE.md).
+- Full transcription content
+- Raw audio
+- Complete user logs
 
-Third-party components and models retain their own licenses; see [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md). Native redistribution obligations remain **LEGAL REVIEW RECOMMENDED**, not legally cleared.
+However:
 
-Report security issues privately to **yehao769399481@gmail.com**; see [SECURITY](SECURITY.md).
+- Logs may contain local file paths.
+- Session recovery files may contain subtitles or transcription content.
+- Users should review logs, recovery files, or exported files before sharing them.
 
-## Developer guide
+For details, see:
 
-Run the following commands in Windows PowerShell from the repository root. Use Conda `asr` for all Python, dependency, test and build operations. Do not reinstall or upgrade an existing working environment just to follow this documentation.
+[PRIVACY.md](PRIVACY.md)
 
-### Clone and create the environment
+---
+
+## Known Limitations
+
+- The Windows installer is currently not Authenticode-signed.
+- Windows may display `Unknown Publisher`.
+- Microsoft SmartScreen may display a security warning.
+- Cross-version upgrades have not been validated across every real-world upgrade scenario.
+- Some GPU / CPU / audio device combinations have not been fully tested.
+- Real microphone environments vary significantly.
+- Headphone / Bluetooth combinations have not been fully tested.
+- Physical multi-monitor and some DPI combinations have not been fully tested.
+- Cross-window drag-and-drop from File Explorer has not been validated in every environment.
+- Some DRM / Protected Audio content may not be capturable through system audio.
+- Some software and virtual audio devices may affect WASAPI loopback capture.
+- ASR may produce recognition errors.
+- Machine translation may produce translation errors.
+- Important content should be reviewed manually.
+- Cloud ASR is not currently provided.
+- Automatic updates are not currently provided.
+- macOS is not currently an official release platform.
+
+Do not disable Windows security protections just to run LocalASR.
+
+Version update information:
+
+[RELEASE_NOTES_0.1.0.md](RELEASE_NOTES_0.1.0.md)
+
+---
+
+## License and Commercial Licensing
+
+LocalASR is licensed under:
+
+[PolyForm Noncommercial License 1.0.0](LICENSE)
+
+Project type:
+
+**Source-available**
+
+Noncommercial use must comply with the PolyForm Noncommercial License 1.0.0.
+
+Commercial use requires a separate commercial license.
+
+Commercial licensing contact:
+
+```text
+yehao769399481@gmail.com
+```
+
+See:
+
+[COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md)
+
+Third-party components and models remain subject to their own licenses.
+
+See:
+
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+
+Users are responsible for reviewing third-party dependency, native runtime, model, and redistribution obligations for their actual use case. This project does not claim to provide legal advice for every possible usage scenario.
+
+For security issues, please contact privately:
+
+```text
+yehao769399481@gmail.com
+```
+
+See:
+
+[SECURITY.md](SECURITY.md)
+
+---
+
+# Developer Guide
+
+The following commands assume:
+
+- Windows
+- PowerShell
+- The LocalASR repository root directory
+
+Recommended Conda environment:
+
+```text
+asr
+```
+
+Primary validated Python version:
+
+```text
+Python 3.11.15
+```
+
+Target development environment:
+
+```text
+Windows x64
+Python 3.11
+```
+
+---
+
+## Get the Source Code
 
 ```powershell
 git clone https://github.com/769399481/LocalASR.git
 cd LocalASR
+```
+
+Create a Conda environment:
+
+```powershell
 conda create -n asr python=3.11
 conda activate asr
 ```
 
-The main validated environment uses Python **3.11.15**. You generally do not need to pin that exact patch version; the project targets Windows x64 / Python 3.11.
+If you already have a working `asr` environment, you do not need to recreate it.
 
-### Dependencies and GPU / CPU
+---
 
-Actual reference versions: faster-whisper **1.2.1**, CTranslate2 **4.8.1**, PyTorch **2.6.0+cu124**, python-docx **1.2.0**, tkinterdnd2 **0.6.3**. Realtime dependencies include sounddevice **0.5.4**, webrtcvad-wheels **2.0.14**, NumPy **2.4.4**, and Windows PyAudioWPatch **0.2.12.8**. Translation uses Transformers **5.13.1**, SentencePiece **0.2.2**, Sacremoses **0.1.1**, and the OpenCC reimplementation **0.1.7**.
+## Install Dependencies
 
-For a new environment, install the direct dependencies for the complete GUI feature set:
+Install the main dependencies required for the full GUI:
 
 ```powershell
 conda run -n asr python -m pip install -r requirements.txt -r requirements-realtime.txt -r requirements-translation.txt
 ```
 
-These files pin direct dependencies, not a complete transitive lock. The `torch==2.6.0` requirement **does not select a CUDA build**. NVIDIA GPU developers should choose a compatible wheel using the [official PyTorch 2.6.0 instructions](https://docs.pytorch.org/get-started/previous-versions/). The validated reference is 2.6.0+cu124; do not casually upgrade versions.
+Reference versions used by the project include:
 
-CTranslate2 performs ASR inference; `torch.cuda.is_available()` alone does not establish ASR availability. GPU execution also needs a compatible NVIDIA driver and discoverable CUDA/cuBLAS/cuDNN runtime DLLs; see [faster-whisper 1.2.1](https://github.com/SYSTRAN/faster-whisper/tree/v1.2.1). A complete CUDA Toolkit is generally unnecessary. Installing Python requirements alone does not guarantee a working GPU path.
+- faster-whisper `1.2.1`
+- CTranslate2 `4.8.1`
+- PyTorch `2.6.0+cu124`
+- python-docx `1.2.0`
+- tkinterdnd2 `0.6.3`
+- sounddevice `0.5.4`
+- webrtcvad-wheels `2.0.14`
+- NumPy `2.4.4`
+- PyAudioWPatch `0.2.12.8`
+- Transformers `5.13.1`
+- SentencePiece `0.2.2`
+- Sacremoses `0.1.1`
+- OpenCC reimplementation `0.1.7`
 
-Without an NVIDIA GPU, CPU fallback can be used. File ASR is slower and realtime operation is not guaranteed on every CPU. Translation defaults to CPU to avoid consuming realtime ASR GPU memory. The optimized build has additional CUDA runtime collection requirements described below; CPU source execution does not imply that you can build the same GPU distribution.
+These requirements files primarily pin direct dependencies and are not a full transitive dependency lock.
 
-### Run from source and prepare models
+---
 
-The actual GUI entry point is:
+## NVIDIA GPU
+
+In `requirements.txt`:
+
+```text
+torch==2.6.0
+```
+
+does not force a specific CUDA wheel.
+
+Developers using an NVIDIA GPU should choose a PyTorch build appropriate for their own hardware and driver environment.
+
+Primary validated LocalASR environment:
+
+```text
+PyTorch 2.6.0+cu124
+```
+
+Official PyTorch installation instructions:
+
+https://docs.pytorch.org/get-started/previous-versions/
+
+Important:
+
+ASR inference is primarily performed by CTranslate2.
+
+Therefore:
+
+```python
+torch.cuda.is_available()
+```
+
+alone does not guarantee that faster-whisper / CTranslate2 GPU inference will work correctly.
+
+GPU ASR also requires:
+
+- NVIDIA driver
+- CUDA Runtime accessible to CTranslate2
+- cuBLAS
+- cuDNN
+- Required DLLs available to the application
+
+faster-whisper:
+
+https://github.com/SYSTRAN/faster-whisper
+
+A full CUDA Toolkit installation is usually not required.
+
+Installing Python requirements alone does not guarantee that the GPU inference environment is fully configured.
+
+---
+
+## CPU Fallback
+
+CPU fallback is available when no NVIDIA GPU is present.
+
+Keep in mind:
+
+- File ASR will be significantly slower.
+- Real-time performance is not guaranteed on every CPU.
+- Real-time ASR performance depends heavily on CPU performance.
+- Translation uses CPU by default to avoid consuming ASR GPU VRAM.
+
+---
+
+## Run from Source
+
+Start the GUI:
 
 ```powershell
 conda run -n asr --no-capture-output python src/gui.py
 ```
 
-Open the speech-model page, select the models you need and download them. Startup does not automatically download every model. Managed models are stored under `models/<model-id>/<pinned-revision>` inside the data root. `src/model_catalog.json` pins revisions, file sizes and SHA256 / Git blob SHA-1 values. Downloads are staged, checked and marked complete, with cancellation/retry support. Legacy model paths and HF cache discovery have compatibility handling with different validation scope; do not fabricate completion markers.
+After startup, open:
 
-Other actual entry points:
+```text
+Speech Models
+```
+
+and download the models you need.
+
+LocalASR does not automatically download every model on each startup.
+
+Managed models are typically stored under:
+
+```text
+models/<model-id>/<pinned-revision>
+```
+
+Model catalog:
+
+```text
+src/model_catalog.json
+```
+
+The catalog contains model version, file information, and integrity verification metadata.
+
+The model downloader supports:
+
+- Temporary download directories
+- Post-download verification
+- Cancellation
+- Retry
+- Reuse of existing compatible models
+
+Do not manually forge model completion markers.
+
+---
+
+## Other Source Entry Points
+
+File CLI:
 
 ```powershell
 conda run -n asr --no-capture-output python src/main.py
+```
+
+Real-time CLI:
+
+```powershell
 conda run -n asr --no-capture-output python src/realtime_demo.py --help
 ```
 
-The file CLI reads `src/config.py`; realtime CLI configuration is in `src/realtime_config.py`. Configure actual model/input/output locations before running a batch.
+File CLI configuration:
 
-### Configuration and user data
+```text
+src/config.py
+```
 
-| Content | Location relative to the default data root |
+Real-time configuration:
+
+```text
+src/realtime_config.py
+```
+
+Before running batch processing, configure the actual model, input directory, and output directory as needed.
+
+---
+
+## Configuration and User Data
+
+### Source Mode
+
+When running from source, the default data root is the repository root.
+
+Main locations:
+
+| Content | Default Location |
 | --- | --- |
-| GUI configuration | gui_settings.json |
-| Models / download staging / cache | models/, downloads/, cache/ |
-| Logs / session recovery | logs/, recovery/ |
-| Default exports | output/ (the GUI can select another directory) |
+| GUI settings | `gui_settings.json` |
+| Models | `models/` |
+| Temporary downloads | `downloads/` |
+| Cache | `cache/` |
+| Logs | `logs/` |
+| Session recovery | `recovery/` |
+| Default output | `output/` |
 
-Source execution defaults to the repository root. Installed/standalone builds default to `%LOCALAPPDATA%\LocalASR`; these are different default locations. Set `LOCALASR_DATA_DIR` to isolate test data, for example:
+### Installed / Standalone Mode
+
+Installed and standalone versions use:
+
+```text
+%LOCALAPPDATA%\LocalASR
+```
+
+by default.
+
+Source mode and installed mode therefore do not use the same default data location.
+
+---
+
+## Custom Data Directory
+
+You can use:
+
+```text
+LOCALASR_DATA_DIR
+```
+
+to isolate test data.
+
+Example:
 
 ```powershell
 $env:LOCALASR_DATA_DIR = Join-Path $PWD 'validation/source-smoke'
+
 conda run -n asr --no-capture-output python src/gui.py
-# After closing the app, restore the shell's default data location:
+```
+
+After closing the application, restore the current PowerShell environment:
+
+```powershell
 Remove-Item Env:LOCALASR_DATA_DIR
 ```
 
-This removes only the shell environment variable, not data. Models, configuration, recordings, exports, logs, recovery, build and validation artifacts are ignored by Git. Do not run tests against private output.
+This command:
 
-### Tests
+- Only removes the environment variable from the current shell.
+- Does not delete any actual data.
 
-Complete regression command:
+Models, settings, recordings, output, logs, recovery files, and build artifacts should not be committed to Git.
+
+---
+
+## Testing
+
+Run the full automated test suite:
 
 ```powershell
 conda run -n asr --no-capture-output python -m unittest discover -s tests -v
 ```
 
-Phase 15 release baseline: **280 tests passed**. Automated tests use mock models/audio, temporary directories, real Tk widgets and subprocesses. They do not require real models/private input and do not certify all hardware. Tk tests need an available Windows desktop. CI has not been validated on a runner, transitive dependencies are not fully locked, and identical results on every new machine are not promised.
+Full automated regression result before the LocalASR v0.1.0 release:
 
-A smaller command-verification example:
+```text
+280 tests passed
+```
+
+Automated tests cover areas including:
+
+- Mock models
+- Mock audio
+- Temporary directories
+- Tk GUI controls
+- Subprocess behavior
+- Transcription logic
+- Real-time processing logic
+- Export logic
+- Model management logic
+
+Automated tests do not mean that every real hardware combination has been validated.
+
+Tk GUI tests require an available Windows desktop environment.
+
+There is currently no long-term validated public CI runner configuration.
+
+Transitive dependencies are not fully locked, so recreating the environment on another machine may produce differences.
+
+---
+
+## Run Selected Tests
+
+Example:
 
 ```powershell
 conda run -n asr --no-capture-output python -m unittest discover -s tests -p test_subtitle_export.py -v
 ```
 
-Phase 15.1 actually verified source GUI startup and this subset (**19 tests passed**), without repeating full release regression. `tests/manual_*.py` is outside automatic discovery and requires the relevant local models/audio. Historical GUI replay defaults reference local validation audio that is not included in a clone. Supply your own test audio or use a benchmark accepting arguments (short mono PCM16 / 16 kHz WAV).
+Some `tests/manual_*.py` files are explicit manual tests and are not included in default unittest discovery.
 
-### Windows standalone build
+These tests may require:
 
-Install build dependencies and download the CPU torch wheel **only for packaging staging**; it does not replace the GPU torch in your active environment:
+- Local ASR models
+- Translation models
+- Real audio files
+- Microphone access
+- Windows system audio
+
+Use your own test audio and do not commit private recordings or private output.
+
+---
+
+## Windows Standalone Build
+
+Install build dependencies:
 
 ```powershell
 conda run -n asr python -m pip install -r requirements-build.txt
+```
+
+Download a CPU Torch wheel used only for packaging:
+
+```powershell
 conda run -n asr python -m pip download --no-deps --only-binary=:all: --index-url https://download.pytorch.org/whl/cpu "torch==2.6.0+cpu" --dest distribution/vendor
+```
+
+Check build paths:
+
+```powershell
 conda run -n asr python distribution/check_build_paths.py
+```
+
+Run the optimized build:
+
+```powershell
 .\build.ps1 -Variant optimized
 ```
 
-Reference build tools are PyInstaller **6.22.3** and hooks-contrib **2026.8**. The entry point is `distribution/build.py`, with `distribution/LocalASR.spec`. Output is `dist/LocalASR-Optimized/LocalASR.exe`; keep the whole folder, not just the EXE. The optimized build clears `build/optimized` and `dist/LocalASR-Optimized`, so preserve any required versions first.
+Reference build tools:
 
-The build collects specific CUDA/cuDNN DLLs from the existing CUDA torch `lib` directory and fails explicitly if they are missing. The CPU wheel is staged for Marian packaging. Size mainly comes from Python/native runtimes, GPU runtimes and translation dependencies; model weights are excluded. UI resources are generated by Tk, with no external custom icon.
-
-Phase 15 actually built the sealed RC with this separate target:
-
-```powershell
-conda run -n asr --no-capture-output python distribution/build.py --phase15
+```text
+PyInstaller 6.22.3
+pyinstaller-hooks-contrib 2026.8
 ```
 
-This regenerates `build/phase15` and `dist/LocalASR-Phase15`. **Do not casually run it in a workspace preserving the final RC.** No build was repeated during this documentation phase.
+Main build entry:
 
-### Windows Installer build
-
-Install official [Inno Setup](https://jrsoftware.org/isinfo.php); the validated version is **6.7.3**. The actual source is `distribution/installer/LocalASR.iss`; `distribution/installer.iss` is only a compatibility include.
-
-Complete the standalone build first. The installer script does not automatically run PyInstaller:
-
-```powershell
-.\distribution\installer\build_installer.ps1 -Standalone dist/LocalASR-Optimized -OutputDirectory dist/release-local -CheckOnly
-.\distribution\installer\build_installer.ps1 -Standalone dist/LocalASR-Optimized -OutputDirectory dist/release-local
+```text
+distribution/build.py
 ```
 
-The script looks for `tools/InnoSetup/ISCC.exe` or the standard Inno Setup 6 installation; use `-Compiler` for an explicit ISCC.exe path. Output includes `LocalASR-Setup-0.1.0-win64.exe`, `SHA256SUMS.txt` and `build-summary.json`. Existing outputs are not overwritten; use a new directory for another build. Version comes from `src/app_version.py` and is checked against the payload.
+PyInstaller spec:
 
-The Phase 15 RC in `dist/release-phase15` remains unchanged. See [INSTALLER](docs/INSTALLER.md) and [CODE_SIGNING](docs/CODE_SIGNING.md) for installation policy and signing scope.
+```text
+distribution/LocalASR.spec
+```
 
-### SHA256
+Output:
 
-Check a downloaded file in its directory:
+```text
+dist/LocalASR-Optimized/
+```
+
+Main executable:
+
+```text
+dist/LocalASR-Optimized/LocalASR.exe
+```
+
+The standalone build uses PyInstaller onedir mode.
+
+**Keep the entire `LocalASR-Optimized` directory. Do not copy only the EXE.**
+
+The optimized build may clean:
+
+```text
+build/optimized
+dist/LocalASR-Optimized
+```
+
+Back up any build you want to keep before rebuilding.
+
+---
+
+## Standalone GPU Runtime
+
+The optimized build collects required CUDA / cuDNN DLLs from the CUDA-enabled PyTorch runtime already available in the development environment.
+
+If required runtime files are missing, the build should fail explicitly.
+
+The CPU Torch wheel used for Marian packaging is stored under:
+
+```text
+distribution/vendor
+```
+
+It is used only for packaging and does not replace the GPU-enabled PyTorch installed in the development environment.
+
+The final standalone size mainly comes from:
+
+- Python Runtime
+- Native Runtime
+- CUDA / cuDNN Runtime
+- PyTorch / translation dependencies
+- GUI and application code
+
+ASR and translation model weights are not included in the standalone package.
+
+---
+
+## Windows Installer Build
+
+The installer uses:
+
+```text
+Inno Setup
+```
+
+Validated version:
+
+```text
+Inno Setup 6.7.3
+```
+
+Installer source:
+
+```text
+distribution/installer/LocalASR.iss
+```
+
+Compatibility entry:
+
+```text
+distribution/installer.iss
+```
+
+You must build the standalone package first.
+
+The installer build script does not automatically run PyInstaller.
+
+Check the installer configuration:
+
+```powershell
+.\distribution\installer\build_installer.ps1 `
+    -Standalone dist/LocalASR-Optimized `
+    -OutputDirectory dist/release-local `
+    -CheckOnly
+```
+
+Build the installer:
+
+```powershell
+.\distribution\installer\build_installer.ps1 `
+    -Standalone dist/LocalASR-Optimized `
+    -OutputDirectory dist/release-local
+```
+
+The script attempts to locate:
+
+```text
+tools/InnoSetup/ISCC.exe
+```
+
+or a standard Inno Setup 6 installation.
+
+You can also use:
+
+```text
+-Compiler
+```
+
+to specify the actual:
+
+```text
+ISCC.exe
+```
+
+path manually.
+
+A successful installer build produces files similar to:
+
+```text
+LocalASR-Setup-0.1.0-win64.exe
+SHA256SUMS.txt
+build-summary.json
+```
+
+The script does not overwrite an existing release file with the same name by default.
+
+Use a new output directory when rebuilding.
+
+The application version is read from:
+
+```text
+src/app_version.py
+```
+
+The installer build validates the payload version.
+
+---
+
+## SHA256
+
+Verify the downloaded official installer:
 
 ```powershell
 Get-FileHash .\LocalASR-Setup-0.1.0-win64.exe -Algorithm SHA256
 ```
 
-Generate a manifest for your own build with the existing helper, which refuses to overwrite its output:
+Official LocalASR v0.1.0 Windows installer:
 
-```powershell
-.\distribution\checksums.ps1 -Files .\dist\release-local\LocalASR-Setup-0.1.0-win64.exe -Output .\dist\release-local\SHA256SUMS-verified.txt
+```text
+File:
+LocalASR-Setup-0.1.0-win64.exe
+
+Size:
+1,303,059,102 bytes
+
+SHA256:
+D148B3ADF46660E1EC878AB7DE6D7AA01A54DDEF01AEFEA7D861D87B75AB2836
 ```
 
-Phase 15 final RC: **1,303,059,102 bytes**; SHA256: `D148B3ADF46660E1EC878AB7DE6D7AA01A54DDEF01AEFEA7D861D87B75AB2836`. This hash identifies only the final RC, not arbitrary local builds. See the [artifact list](docs/development/PHASE15_ARTIFACTS.md).
+You can also compare it with:
 
-### Project structure
+```text
+SHA256SUMS.txt
+```
+
+provided in the GitHub Release.
+
+To generate a SHA256 manifest for your own installer build:
+
+```powershell
+.\distribution\checksums.ps1 `
+    -Files .\dist\release-local\LocalASR-Setup-0.1.0-win64.exe `
+    -Output .\dist\release-local\SHA256SUMS-verified.txt
+```
+
+A locally rebuilt installer may have different binary contents and a different SHA256 even if the version number is the same.
+
+---
+
+## Project Structure
 
 ```text
 LocalASR/
-├─ src/                   # Core, GUI, model catalog, version
-├─ tests/                 # Automated and explicit manual tests
-├─ distribution/          # build, spec, hooks, installer, checksums
-├─ docs/                  # Architecture, installer policy, validation history
-├─ .github/               # Issue / PR templates
+├─ .github/                     # GitHub Issue / PR configuration
+├─ distribution/                # Standalone, installer, build, and checksum tools
+├─ src/                         # Core code, GUI, model management, version information
+├─ tests/                       # Automated and explicit manual tests
+│
+├─ .gitignore
 ├─ build.ps1
-├─ requirements*.txt
+│
+├─ requirements.txt
+├─ requirements-realtime.txt
+├─ requirements-translation.txt
+├─ requirements-build.txt
+│
 ├─ README.md
 ├─ README_EN.md
-└─ LICENSE
+├─ RELEASE_NOTES_0.1.0.md
+│
+├─ LICENSE
+├─ COMMERCIAL_LICENSE.md
+├─ PRIVACY.md
+├─ SECURITY.md
+├─ THIRD_PARTY_NOTICES.md
+└─ CONTRIBUTING.md
 ```
 
-Models, dist, build and local user data are not included in a Git clone. See [architecture](docs/ARCHITECTURE.md) and [contributing](CONTRIBUTING.md).
+The following are not included when cloning the Git repository:
 
-### Troubleshooting
+- ASR models
+- Translation models
+- `dist/`
+- `build/`
+- Local user data
+- Download cache
+- User output
+- Private recordings
+- Local logs
 
-| Problem | What to check |
+---
+
+## Troubleshooting
+
+| Problem | What to Check |
 | --- | --- |
-| CUDA unavailable | Check app hardware diagnostics, NVIDIA drivers and CTranslate2 runtimes. Use CPU fallback if appropriate; torch-only detection is insufficient. |
-| Model missing | Download through the model page; check the data directory, network and disk space. Do not manually mark a model complete. |
-| Microphone unavailable | Check Windows default input, microphone permissions and other apps using the device. |
-| System Audio unavailable | Windows uses WASAPI loopback. Check the default output device, volume/mute and PyAudioWPatch; protected audio may be unavailable. |
-| Translation model missing | Translation is independent of ASR. Download the Chinese translation model and install translation dependencies. |
-| Inno Setup missing | Install official Inno Setup or pass the actual ISCC.exe location with -Compiler. |
-| PyInstaller failure | Check asr, dependencies, CPU wheel staging, CUDA runtimes, disk space, spec and output paths. Run the path check first and read build logs. |
+| CUDA unavailable | Check LocalASR hardware diagnostics, NVIDIA drivers, and the runtime required by CTranslate2. CPU fallback is available. Do not rely only on `torch.cuda.is_available()` to determine ASR GPU availability. |
+| Model missing | Open the Speech Models page and download the required model. Check network access, disk space, and the data directory. |
+| Microphone unavailable | Check the Windows default input device, microphone permission, and whether another application is exclusively using the device. |
+| System Audio unavailable | Check the default playback device, volume, mute state, and PyAudioWPatch. Some protected audio may not be capturable. |
+| Translation model missing | The translation model is separate from the ASR models and must be downloaded independently. Translation dependencies must also be installed. |
+| Inno Setup missing | Install the official Inno Setup package or provide the actual `ISCC.exe` path through `-Compiler`. |
+| PyInstaller failure | Check the Conda `asr` environment, build dependencies, CPU Torch wheel staging, CUDA Runtime, disk space, spec file, and output paths. |
+
+---
+
+## Feedback and Issues
+
+If you find a bug or want to request a feature, use:
+
+[GitHub Issues](https://github.com/769399481/LocalASR/issues)
+
+When reporting an issue, please include:
+
+- Windows version
+- CPU
+- GPU
+- LocalASR version
+- ASR model used
+- Audio source
+- Steps to reproduce the issue
+- Relevant error information
+
+Please do not publicly submit:
+
+- Private recordings
+- Full transcriptions containing sensitive information
+- Passwords
+- Tokens
+- Private API keys
+- Other personal or sensitive data
+
+Do not report security vulnerabilities through public GitHub Issues.
+
+Please send security reports to:
+
+```text
+yehao769399481@gmail.com
+```
+
+---
+
+## Release
+
+Current stable version:
+
+```text
+LocalASR v0.1.0
+```
+
+Windows installer:
+
+```text
+LocalASR-Setup-0.1.0-win64.exe
+```
+
+Download:
+
+[GitHub Releases](https://github.com/769399481/LocalASR/releases)
+
+Release Notes:
+
+[RELEASE_NOTES_0.1.0.md](RELEASE_NOTES_0.1.0.md)
+
+---
+
+## License
+
+LocalASR is source-available software licensed under the:
+
+**PolyForm Noncommercial License 1.0.0**
+
+See:
+
+[LICENSE](LICENSE)
+
+Commercial use requires separate permission.
+
+Commercial licensing:
+
+```text
+yehao769399481@gmail.com
+```
