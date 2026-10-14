@@ -1,0 +1,140 @@
+{
+  "small": {
+    "id": "small",
+    "name": "Fast / Balanced speech",
+    "repo": "Systran/faster-whisper-small",
+    "revision": "536b0662742c02347bc0e980a01041f333bce120",
+    "files": [
+      {
+        "name": "README.md",
+        "size": 1998,
+        "sha256": null,
+        "git_sha1": "16511f6106ead2fbc3a1480957a217c2661a5a98"
+      },
+      {
+        "name": "config.json",
+        "size": 2370,
+        "sha256": null,
+        "git_sha1": "e5047537059bd8f182d9ca64c470201585015187"
+      },
+      {
+        "name": "model.bin",
+        "size": 483546902,
+        "sha256": "3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671",
+        "git_sha1": null
+      },
+      {
+        "name": "tokenizer.json",
+        "size": 2203239,
+        "sha256": null,
+        "git_sha1": "7818adb6de9fa3064d3ff81226fdd675be1f6344"
+      },
+      {
+        "name": "vocabulary.txt",
+        "size": 459861,
+        "sha256": null,
+        "git_sha1": "c9074644d9d1205686f16d411564729461324b75"
+      }
+    ]
+  },
+  "large-v3": {
+    "id": "large-v3",
+    "name": "Best Quality speech",
+    "repo": "Systran/faster-whisper-large-v3",
+    "revision": "edaa852ec7e145841d8ffdb056a99866b5f0a478",
+    "files": [
+      {
+        "name": "README.md",
+        "size": 2052,
+        "sha256": null,
+        "git_sha1": "a84bfa7f20cac02ea5a99efa5eaf687ad58c1caf"
+      },
+      {
+        "name": "config.json",
+        "size": 2394,
+        "sha256": null,
+        "git_sha1": "75336feae814999bae6ccccdecf177639ffc6f9d"
+      },
+      {
+        "name": "model.bin",
+        "size": 3087284237,
+        "sha256": "69f74147e3334731bc3a76048724833325d2ec74642fb52620eda87352e3d4f1",
+        "git_sha1": null
+      },
+      {
+        "name": "preprocessor_config.json",
+        "size": 340,
+        "sha256": null,
+        "git_sha1": "931c77a740890c46365c7ae0c9d350ba3cca908f"
+      },
+      {
+        "name": "tokenizer.json",
+        "size": 2480617,
+        "sha256": null,
+        "git_sha1": "3a5e2ba63acdcac9a19ba56cf9bd27f185bfff61"
+      },
+      {
+        "name": "vocabulary.json",
+        "size": 1068114,
+        "sha256": null,
+        "git_sha1": "0adcd01e7c237205d593b707e66dd5d7bc785d2d"
+      }
+    ]
+  },
+  "opus-mt-en-zh": {
+    "id": "opus-mt-en-zh",
+    "name": "English to Chinese translation",
+    "repo": "Helsinki-NLP/opus-mt-en-zh",
+    "revision": "408d9bc410a388e1d9aef112a2daba955b945255",
+    "files": [
+      {
+        "name": "README.md",
+        "size": 2670,
+        "sha256": null,
+        "git_sha1": "cc6fb518752007783a71d6c62af0c8d5f6523975"
+      },
+      {
+        "name": "config.json",
+        "size": 1403,
+        "sha256": null,
+        "git_sha1": "e2c7882d05248a3e47cfa69f3dc6d5cfd99a3c07"
+      },
+      {
+        "name": "generation_config.json",
+        "size": 293,
+        "sha256": null,
+        "git_sha1": "f07859fcab98712b231d115475990a962eebc851"
+      },
+      {
+        "name": "pytorch_model.bin",
+        "size": 312087009,
+        "sha256": "69a1d6ec829cee349360b3b677ac0aa99a7d88822d1a6578370029efffdca3f5",
+        "git_sha1": null
+      },
+      {
+        "name": "source.spm",
+        "size": 806435,
+        "sha256": null,
+        "git_sha1": "3f695c68a3aeb685ded9a5db0865af02c986bebf"
+      },
+      {
+        "name": "target.spm",
+        "size": 804600,
+        "sha256": null,
+        "git_sha1": "e19744e15a0f53b209fa40dbdc9e7fc4e96771cd"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "size": 44,
+        "sha256": null,
+        "git_sha1": "af90e7a4c0e5e8f828e146bdb499c22cef85740e"
+      },
+      {
+        "name": "vocab.json",
+        "size": 1617791,
+        "sha256": null,
+        "git_sha1": "423d3deb0188828da557bb61494bf73e4b86d275"
+      }
+    ]
+  }
+}

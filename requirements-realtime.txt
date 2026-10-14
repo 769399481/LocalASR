@@ -1,0 +1,7 @@
+# Optional real-time capture/VAD. Install only in Conda asr; no ASR upgrades needed.
+sounddevice==0.5.4
+webrtcvad-wheels==2.0.14
+# Already present; used to convert PCM16 audio to Whisper's float32 array.
+numpy==2.4.4
+# Windows output capture; no virtual sound card and no microphone loopback.
+PyAudioWPatch==0.2.12.8; sys_platform == "win32"

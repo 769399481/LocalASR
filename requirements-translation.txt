@@ -1,0 +1,6 @@
+# Optional local translation dependencies; install only in Conda asr.
+# Transformers/SentencePiece versions already present before Phase 3.
+transformers==5.13.1
+sentencepiece==0.2.2
+sacremoses==0.1.1
+opencc-python-reimplemented==0.1.7

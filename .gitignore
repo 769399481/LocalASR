@@ -1,0 +1,64 @@
+# Python / development tools
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Private runtime data; never publish recordings, transcripts or local settings
+/input/
+/output/
+/logs/
+/recovery/
+/gui_settings.json
+*.local.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Models / downloads / caches
+/models/
+**/.cache/
+/cache/
+/downloads/
+/huggingface/
+*.safetensors
+*.onnx
+model.bin
+pytorch_model*.bin
+
+# Generated packages and local rollback copies (keep on disk)
+/build/
+/dist/
+/distribution/vendor/
+/distribution/third_party_licenses/
+*.exe
+*.dll
+*.pyd
+*.whl
+*.msi
+
+# Private validation evidence, local archives and temporary work
+/validation/
+/archive/
+/temp/
+/tmp/
+/screenshots/
+/test-output/
+/test_outputs/
+/tools/InnoSetup/
+*.log
+*.tmp
+*.bak

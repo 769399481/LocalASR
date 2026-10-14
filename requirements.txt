@@ -1,0 +1,9 @@
+# Versions verified in the existing Conda asr environment; do not upgrade blindly.
+faster-whisper==1.2.1
+ctranslate2==4.8.1
+python-docx==1.2.0
+# Existing Windows GPU build: 2.6.0+cu124. See README for GPU installation notes.
+torch==2.6.0
+# Optional local translation: requirements-translation.txt (keep ASR-only installs small).
+# Optional microphone ASR: requirements-realtime.txt.
+tkinterdnd2==0.6.3
