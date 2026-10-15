@@ -8,9 +8,9 @@
 
 当前稳定版本：**v0.1.0**
 
-[项目主页](https://github.com/769399481/LocalASR) ·
-[Issues](https://github.com/769399481/LocalASR/issues) ·
-[Releases](https://github.com/769399481/LocalASR/releases)
+[项目主页](https://github.com/Caleb-Ye/LocalASR) ·
+[Issues](https://github.com/Caleb-Ye/LocalASR/issues) ·
+[Releases](https://github.com/Caleb-Ye/LocalASR/releases)
 
 ---
 
@@ -34,7 +34,7 @@
 
 请从：
 
-[GitHub Releases](https://github.com/769399481/LocalASR/releases)
+[GitHub Releases](https://github.com/Caleb-Ye/LocalASR/releases)
 
 下载最新 Windows 安装包。
 
@@ -399,7 +399,7 @@ Python 3.11
 ## 获取源码
 
 ```powershell
-git clone https://github.com/769399481/LocalASR.git
+git clone https://github.com/Caleb-Ye/LocalASR.git
 cd LocalASR
 ```
 
@@ -991,7 +991,7 @@ LocalASR/
 
 如果发现 Bug 或希望提出功能建议，请使用：
 
-[GitHub Issues](https://github.com/769399481/LocalASR/issues)
+[GitHub Issues](https://github.com/Caleb-Ye/LocalASR/issues)
 
 提交问题时建议提供：
 
@@ -1039,7 +1039,7 @@ LocalASR-Setup-0.1.0-win64.exe
 
 下载：
 
-[GitHub Releases](https://github.com/769399481/LocalASR/releases)
+[GitHub Releases](https://github.com/Caleb-Ye/LocalASR/releases)
 
 Release Notes：
 

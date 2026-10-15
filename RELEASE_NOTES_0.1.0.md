@@ -24,7 +24,7 @@ LocalASR 是一款源码公开、本地运行的 Windows 语音识别与实时�
 
 请从 GitHub Releases 下载 Windows 安装包：
 
-https://github.com/769399481/LocalASR/releases
+https://github.com/Caleb-Ye/LocalASR/releases
 
 官方 Windows Installer：
 
@@ -335,11 +335,11 @@ unins000.exe
 
 GitHub Repository：
 
-https://github.com/769399481/LocalASR
+https://github.com/Caleb-Ye/LocalASR
 
 Issues：
 
-https://github.com/769399481/LocalASR/issues
+https://github.com/Caleb-Ye/LocalASR/issues
 
 完整安装、使用、开发、测试和构建说明：
 
@@ -371,7 +371,7 @@ LocalASR is a source-available Windows speech recognition and real-time translat
 
 Download the Windows installer from GitHub Releases:
 
-https://github.com/769399481/LocalASR/releases
+https://github.com/Caleb-Ye/LocalASR/releases
 
 Official Windows installer:
 
@@ -684,11 +684,11 @@ Deleting the downloaded installer does not uninstall the application.
 
 GitHub Repository:
 
-https://github.com/769399481/LocalASR
+https://github.com/Caleb-Ye/LocalASR
 
 Issues:
 
-https://github.com/769399481/LocalASR/issues
+https://github.com/Caleb-Ye/LocalASR/issues
 
 For complete installation, usage, development, testing, and build instructions, see:
 

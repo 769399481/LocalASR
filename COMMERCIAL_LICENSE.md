@@ -10,4 +10,4 @@ LocalASR is source-available under the PolyForm Noncommercial License 1.0.0. For
 
 此说明不修改 LICENSE 正文，不预设价格、套餐或合同。许可证的具体许可范围以原文为准。第三方代码与模型继续遵循各自许可证，不因 LocalASR 商业授权而改变。
 
-项目主页：https://github.com/769399481/LocalASR
+项目主页：https://github.com/Caleb-Ye/LocalASR

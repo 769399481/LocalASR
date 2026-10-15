@@ -8,9 +8,9 @@ Project type: **Source-available**
 
 Current stable version: **v0.1.0**
 
-[Project Home](https://github.com/769399481/LocalASR) ·
-[Issues](https://github.com/769399481/LocalASR/issues) ·
-[Releases](https://github.com/769399481/LocalASR/releases)
+[Project Home](https://github.com/Caleb-Ye/LocalASR) ·
+[Issues](https://github.com/Caleb-Ye/LocalASR/issues) ·
+[Releases](https://github.com/Caleb-Ye/LocalASR/releases)
 
 ---
 
@@ -34,7 +34,7 @@ Current stable version: **v0.1.0**
 
 Download the latest Windows installer from:
 
-[GitHub Releases](https://github.com/769399481/LocalASR/releases)
+[GitHub Releases](https://github.com/Caleb-Ye/LocalASR/releases)
 
 Current version:
 
@@ -397,7 +397,7 @@ Python 3.11
 ## Get the Source Code
 
 ```powershell
-git clone https://github.com/769399481/LocalASR.git
+git clone https://github.com/Caleb-Ye/LocalASR.git
 cd LocalASR
 ```
 
@@ -993,7 +993,7 @@ The following are not included when cloning the Git repository:
 
 If you find a bug or want to request a feature, use:
 
-[GitHub Issues](https://github.com/769399481/LocalASR/issues)
+[GitHub Issues](https://github.com/Caleb-Ye/LocalASR/issues)
 
 When reporting an issue, please include:
 
@@ -1041,7 +1041,7 @@ LocalASR-Setup-0.1.0-win64.exe
 
 Download:
 
-[GitHub Releases](https://github.com/769399481/LocalASR/releases)
+[GitHub Releases](https://github.com/Caleb-Ye/LocalASR/releases)
 
 Release Notes:
 
